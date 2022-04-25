@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@jeffreyvr/tailwindcss-tailpress": "^2.0.0",
+    "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/line-clamp": "^0.3.1",
     "autoprefixer": "^10.4.0",
     "browser-sync": "^2.26.14",

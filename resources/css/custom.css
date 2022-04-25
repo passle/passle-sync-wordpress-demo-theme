@@ -48,7 +48,19 @@
 }
 
 .post-content {
-  > p {
+  p {
     @apply mb-4;
   }
+
+  a {
+    @apply text-primary;
+  }
+
+  blockquote {
+    @apply border-l-4 border-gray-200 pl-4 mb-4;
+  }
+}
+
+::selection {
+  @apply bg-primary-light text-white;
 }

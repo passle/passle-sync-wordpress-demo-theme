@@ -13,6 +13,11 @@
           "color": "#FF5271"
         },
         {
+          "name": "Primary Light",
+          "slug": "primary-light",
+          "color": "#FF859B"
+        },
+        {
           "name": "Secondary",
           "slug": "secondary",
           "color": "#14B8A6"

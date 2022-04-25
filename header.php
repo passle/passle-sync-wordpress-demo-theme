@@ -45,8 +45,8 @@
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 							<i class="fas fa-search text-gray-400"></i>
 						</div>
-						<form action="<?php home_url("/") ?>" method="get" role="search">
-							<input type="text" placeholder="Search for posts" class="border border-gray-400 pl-10 p-2 w-72" value="<?php echo the_search_query() ?>" name="s" id="s" />
+						<form action="<?php home_url("/") ?>" method="get" role="search" autocomplete="off">
+							<input type="text" placeholder="Search for posts" class="border border-gray-400 pl-10 p-2 w-72 focus:ring-primary focus:border-primary" value="<?php echo the_search_query() ?>" name="s" id="s" />
 						</form>
 					</div>
 				</div>

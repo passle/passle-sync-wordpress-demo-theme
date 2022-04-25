@@ -39,5 +39,9 @@ module.exports = {
       "2xl": "1440px",
     },
   },
-  plugins: [tailpress.tailwind, require("@tailwindcss/line-clamp")],
+  plugins: [
+    tailpress.tailwind,
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/line-clamp"),
+  ],
 };

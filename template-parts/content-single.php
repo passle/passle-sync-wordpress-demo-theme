@@ -9,6 +9,8 @@
 	$post_read_time_minutes = max(ceil($post_read_time_seconds / 60), 1);
 
 	$primary_author = unserialize($post_meta["post_authors"][0])[0];
+	$tags = implode(", ", unserialize($post_meta["post_tags"][0]));
+	$tweets = unserialize($post_meta["post_tweets"][0]);
 	?>
 
 	<div class="flex flex-col">
@@ -29,10 +31,10 @@
 						<a href="<?php echo $primary_author["profile_url"]; ?>">
 							<img src="<?php echo $primary_author["image_url"]; ?>" alt="<?php echo $primary_author["name"]; ?>" class="h-24 w-24 object-cover" />
 						</a>
-						<div class="flex flex-col justify-center gap-2">
+						<div class="flex flex-col justify-center gap-1">
 							<a href="<?php echo $primary_author["profile_url"]; ?>" class="text-2xl underline font-medium"><?php echo $primary_author["name"]; ?></a>
 							<?php if ($primary_author["role"] != null) { ?>
-								<div><?php echo $primary_author["role"]; ?></div>
+								<div class="text-lg"><?php echo $primary_author["role"]; ?></div>
 							<?php } ?>
 						</div>
 					</div>
@@ -56,19 +58,36 @@
 					</div>
 				</div>
 				<div class="w-44 pointer-events-none">
-					<div class="-rotate-90 font-bodoni uppercase text-right origin-bottom-right leading-none text-7xl mt-48 -mr-2 text-gray-300">Insights</div>
+					<div class="-rotate-90 font-bodoni uppercase text-right origin-bottom-right leading-none text-7xl mt-48 -mr-2 text-gray-300 select-none">Insights</div>
 				</div>
 				<div class="post-content flex-grow bg-white pt-24 pb-10 px-16 text-lg min-h-[32rem]">
 					<?php the_content(); ?>
 					<?php if ($post_meta["post_quote_text"][0] != null) { ?>
-						<p class="border-l-8 border-primary pl-8 min-h-[1rem] flex flex-col gap-2">
+						<div class="border-l-8 border-primary pl-8 my-8 min-h-[1rem] flex flex-col gap-2 items-start">
 							<span class="text-2xl font-bodoni">
 								<?php echo $post_meta["post_quote_text"][0]; ?>
 							</span>
-							<span class="text-primary">
-								<a href="<?php echo $post_meta["post_quote_url"][0]; ?>" target="_blank" rel="noopener noreferrer"><?php echo $post_meta["post_quote_url"][0]; ?></a>
-							</span>
-						</p>
+							<a href="<?php echo $post_meta["post_quote_url"][0]; ?>" target="_blank" rel="noopener noreferrer"><?php echo $post_meta["post_quote_url"][0]; ?></a>
+						</div>
+					<?php } ?>
+					<?php if ($tags) { ?>
+						<div class="mb-8">
+							<h3 class="text-xl font-bodoni mb-2">Tags</h3>
+							<div class="flex items-center gap-2">
+								<i class="fas fa-tags"></i>
+								<span class="text-primary"><?php echo $tags; ?></span>
+							</div>
+						</div>
+					<?php } ?>
+					<?php if ($tweets) { ?>
+						<div class="mb-8">
+							<h3 class="text-xl font-bodoni mb-2">Tweets</h3>
+							<div class="grid grid-cols-3 gap-4">
+								<?php foreach ($tweets as $tweet) { ?>
+									<?php echo htmlspecialchars_decode($tweet["embed_code"]) ?>
+								<?php } ?>
+							</div>
+						</div>
 					<?php } ?>
 				</div>
 			</div>
