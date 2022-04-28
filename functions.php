@@ -113,8 +113,11 @@ function passle_demo_nav_menu_add_submenu_class($classes, $args, $depth)
 
 add_filter('nav_menu_submenu_css_class', 'passle_demo_nav_menu_add_submenu_class', 10, 3);
 
-add_action("pre_get_posts", function ($query) {
-	if (!is_admin() && $query->is_main_query()) {
-		$query->set("post_type", "passle_post");
+function include_passle_posts_in_main_query($query)
+{
+	if (!is_admin() && $query->is_home() && $query->is_main_query()) {
+		$query->set("post_type", "passle-post");
 	}
-});
+}
+
+add_action("pre_get_posts", "include_passle_posts_in_main_query");
