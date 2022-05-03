@@ -18,6 +18,26 @@
           "color": "#FF859B"
         },
         {
+          "name": "LinkedIn",
+          "slug": "linkedin",
+          "color": "#2867B2"
+        },
+        {
+          "name": "Twitter",
+          "slug": "twitter",
+          "color": "#1DA1F2"
+        },
+        {
+          "name": "Facebook",
+          "slug": "facebook",
+          "color": "#4267B2"
+        },
+        {
+          "name": "Xing",
+          "slug": "xing",
+          "color": "#026466"
+        },
+        {
           "name": "Secondary",
           "slug": "secondary",
           "color": "#14B8A6"
