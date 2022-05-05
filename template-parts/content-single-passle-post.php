@@ -55,43 +55,43 @@ function xing_share_url($passle_post)
 <article id="post-<?php the_ID(); ?>" <?php post_class("mb-8"); ?>>
 
 	<div class="flex flex-col">
-		<div class="flex flex-col gap-14 max-w-6xl mx-auto bg-white pt-10 pb-2 px-16 w-full">
-			<h1 class="entry-title text-5xl font-extrabold !leading-[4rem] mb-1 font-bodoni"><?php echo $passle_post->title; ?></h1>
-			<div class="flex gap-1 text-sm">
-				<time datetime="<?php echo $passle_post->get_date("j F Y"); ?>" itemprop="datePublished">
-					<?php echo $passle_post->get_date("j F Y"); ?>
-				</time>
-				<span>|</span>
-				<div><?php echo $passle_post->estimated_read_time_minutes; ?> min read</div>
+		<div class="flex flex-row justify-between max-w-6xl mx-auto bg-white py-10 px-8 w-full">
+			<div class="flex flex-col justify-center gap-4">
+				<h1 class="entry-title text-5xl font-extrabold !leading-[4rem] mr-4 font-bodoni"><?php echo $passle_post->title; ?></h1>
+				<div class="flex gap-1 text-sm">
+					<time datetime="<?php echo $passle_post->get_date("j F Y"); ?>" itemprop="datePublished">
+						<?php echo $passle_post->get_date("j F Y"); ?>
+					</time>
+					<span>|</span>
+					<div><?php echo $passle_post->estimated_read_time_minutes; ?> min read</div>
+				</div>
+			</div>
+			<div class="basis-1/2">
+				<?php if ($passle_post->featured_item_html != null) {
+					echo $passle_post->featured_item_html;
+				} else { ?>
+					<img src="<?php echo $passle_post->image_url; ?>" alt="<?php echo $passle_post->title; ?>" class="w-full aspect-video object-cover" />
+				<?php } ?>
 			</div>
 		</div>
 		<div class="py-4 bg-primary text-white font-bodoni">
-			<div class="max-w-6xl mx-auto px-16">
-				<div class="flex justify-between relative">
-					<div class="flex gap-6">
-						<?php if ($passle_post->primary_author->profile_url) { ?>
-							<a href="<?php echo $passle_post->primary_author->profile_url; ?>">
-								<img src="<?php echo $passle_post->primary_author->get_avatar_url(); ?>" alt="<?php echo $passle_post->primary_author->name; ?>" class="h-24 w-24 object-cover border border-gray-300" />
-							</a>
-						<?php } else { ?>
+			<div class="max-w-6xl mx-auto px-8">
+				<div class="flex gap-6">
+					<?php if ($passle_post->primary_author->profile_url) { ?>
+						<a href="<?php echo $passle_post->primary_author->profile_url; ?>">
 							<img src="<?php echo $passle_post->primary_author->get_avatar_url(); ?>" alt="<?php echo $passle_post->primary_author->name; ?>" class="h-24 w-24 object-cover border border-gray-300" />
+						</a>
+					<?php } else { ?>
+						<img src="<?php echo $passle_post->primary_author->get_avatar_url(); ?>" alt="<?php echo $passle_post->primary_author->name; ?>" class="h-24 w-24 object-cover border border-gray-300" />
+					<?php } ?>
+					<div class="flex flex-col justify-center gap-1">
+						<?php if ($passle_post->primary_author->profile_url) { ?>
+							<a href="<?php echo $passle_post->primary_author->profile_url; ?>" class="text-2xl underline font-medium"><?php echo $passle_post->primary_author->name; ?></a>
+						<?php } else { ?>
+							<span class="text-2xl font-medium"><?php echo $passle_post->primary_author->name; ?></span>
 						<?php } ?>
-						<div class="flex flex-col justify-center gap-1">
-							<?php if ($passle_post->primary_author->profile_url) { ?>
-								<a href="<?php echo $passle_post->primary_author->profile_url; ?>" class="text-2xl underline font-medium"><?php echo $passle_post->primary_author->name; ?></a>
-							<?php } else { ?>
-								<span class="text-2xl font-medium"><?php echo $passle_post->primary_author->name; ?></span>
-							<?php } ?>
-							<?php if ($passle_post->primary_author->role != null) { ?>
-								<div class="text-lg"><?php echo $passle_post->primary_author->role; ?></div>
-							<?php } ?>
-						</div>
-					</div>
-					<div class="h-64 aspect-video absolute z-10 right-0 top-1/2 -translate-y-1/2 border border-gray-100 overflow-hidden">
-						<?php if ($post->featured_item_html != null) {
-							echo $post->featured_item_html;
-						} else { ?>
-							<img src="<?php echo $passle_post->image_url; ?>" alt="<?php echo $passle_post->title; ?>" class="h-full w-full object-cover" />
+						<?php if ($passle_post->primary_author->role != null) { ?>
+							<div class="text-lg"><?php echo $passle_post->primary_author->role; ?></div>
 						<?php } ?>
 					</div>
 				</div>
@@ -99,7 +99,7 @@ function xing_share_url($passle_post)
 		</div>
 		<div class="max-w-6xl mx-auto w-full">
 			<div class="flex relative">
-				<div class="absolute top-0 inset-x-0 bg-gray-400 bg-opacity-10 w-[calc(100%-theme(spacing.16))] py-1">
+				<div class="absolute top-0 inset-x-0 bg-gradient-to-r from-gray-400/20 to-white w-full py-1">
 					<div class="ml-44">
 						<div class="pl-16 h-6 flex items-center gap-6">
 							<!-- ISTATOY button -->
@@ -170,7 +170,7 @@ function xing_share_url($passle_post)
 				</div>
 				<div class="post-content flex-grow bg-white pt-24 pb-10 px-16 text-lg min-h-[32rem]">
 					<?php echo $passle_post->content ?>
-					<?php if ($post->quote_text != null) { ?>
+					<?php if ($passle_post->quote_text != null) { ?>
 						<div class="border-l-8 border-primary pl-8 my-8 min-h-[1rem] flex flex-col gap-2 items-start">
 							<span class="text-2xl font-bodoni">
 								<?php echo $passle_post->quote_text; ?>
