@@ -1,18 +1,17 @@
-const { src, dest } = require("gulp");
+const { src, dest, series } = require("gulp");
 const zip = require("gulp-zip");
-const chalk = require("chalk");
+const { spawn } = require("child_process");
 
 const THEME_SLUG = "passle-sync-demo";
 
-const buildZip = (cb) => {
-  console.log(
-    chalk.yellow(
-      `!!\n!! Make sure you have run ${chalk.bold.cyan(
-        "npm run production",
-      )} before running build-zip.\n!!`,
-    ),
-  );
+const build = (cb) => {
+  spawn("npm", ["run", "production"], {
+    stdio: "inherit",
+    shell: true,
+  }).on("close", cb);
+};
 
+const buildZip = (cb) => {
   src([
     "**/*",
     "!**/node_modules{,/**}",
@@ -32,4 +31,5 @@ const buildZip = (cb) => {
   cb();
 };
 
-exports.buildZip = buildZip;
+exports.init = build;
+exports.buildZip = series(build, buildZip);

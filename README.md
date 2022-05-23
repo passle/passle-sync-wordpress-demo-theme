@@ -17,6 +17,14 @@ TBD
 ## 👨‍💻 Development
 
 <details>
+<summary>Prerequisites</summary>
+
+- [NPM](https://www.npmjs.com/)
+- Development environment running a Wordpress instance
+
+</details>
+
+<details>
 <summary>Environment setup</summary>
 
 To develop this theme, first clone the repository:
@@ -25,7 +33,26 @@ To develop this theme, first clone the repository:
 git clone https://github.com/passle/passle-sync-wordpress-demo-theme
 ```
 
-To build the CSS and JavaScript, use the `watch` and `production` scripts availabile in `package.json`.
+Next, install all dependencies and build the frontend with the following commands:
+
+```
+npm install
+npm run init
+```
+
+</details>
+
+<details>
+<summary>Developing the frontend</summary>
+
+To develop the frontend, use the `watch` script available in [package.json](./frontend/package.json).
+
+</details>
+
+<details>
+<summary>Building the theme zip</summary>
+
+To build the theme zip file, use the `build` script available in [package.json](./package.json). This will install all dependencies, build the frontend, and create a zip containing all necessary output files.
 
 </details>
 

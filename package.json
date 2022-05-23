@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "init": "gulp init",
+    "build": "gulp buildZip",
     "production:css-app": "tailwindcss -i \"./resources/css/app.css\" -o \"./css/app.css\" --postcss --minify",
     "production:css-editor": "tailwindcss -i \"./resources/css/editor-style.css\" -o \"./css/editor-style.css\" --postcss --minify",
     "production:js": "esbuild \"./resources/js/app.js\" --bundle --outfile=\"./js/app.js\" --minify",
@@ -17,8 +19,7 @@
     "dev": "cross-env NODE_ENV=development concurrently \"npm run dev:css-app\" \"npm run dev:css-editor\" \"npm run dev:js\"",
     "watch": "cross-env NODE_ENV=development concurrently \"npm run watch:css-app\" \"npm run watch:css-editor\" \"npm run watch:js\"",
     "browser-sync": "cross-env NODE_ENV=development browser-sync start --proxy \"passle-demo.test\" --host=\"passle-demo.test\" --no-inject-changes --files=\"./\"",
-    "watch-sync": "concurrently \"npm run browser-sync\" \"npm run watch\"",
-    "build-zip": "gulp buildZip"
+    "watch-sync": "concurrently \"npm run browser-sync\" \"npm run watch\""
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,6 @@
     "@tailwindcss/line-clamp": "^0.3.1",
     "autoprefixer": "^10.4.0",
     "browser-sync": "^2.26.14",
-    "chalk": "^4.1.2",
     "concurrently": "^6.2.1",
     "cross-env": "^6.0.3",
     "esbuild": "^0.12.24",
