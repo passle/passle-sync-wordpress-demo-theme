@@ -6,9 +6,6 @@
 
 <?php do_action('passle_demo_content_after'); ?>
 
-<!-- The PASSLESYNC_DOMAIN_EXT constant comes from the Passle plugin. The plugin must be loaded for this to work. -->
-<script type="text/javascript" src="https://clientweb.passle.<?php echo PASSLESYNC_DOMAIN_EXT; ?>/v1/RemoteHostingBundle"></script>
-
 <footer id="colophon" class="site-footer bg-gray-50 py-12 mt-4" role="contentinfo">
 	<?php do_action('passle_demo_footer'); ?>
 
