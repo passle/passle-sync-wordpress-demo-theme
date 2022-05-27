@@ -66,7 +66,7 @@ function xing_share_url($passle_post)
 					<div><?php echo $passle_post->estimated_read_time_minutes; ?> min read</div>
 				</div>
 			</div>
-			<div class="basis-1/2">
+			<div class="basis-1/2 shrink-0">
 				<?php if ($passle_post->featured_item_html != null) {
 					echo $passle_post->featured_item_html;
 				} else { ?>
@@ -168,10 +168,12 @@ function xing_share_url($passle_post)
 				<div class="w-44 pointer-events-none">
 					<div class="-rotate-90 font-bodoni uppercase text-right origin-bottom-right leading-none text-7xl mt-48 -mr-2 text-gray-300 select-none">Insights</div>
 				</div>
-				<div class="post-content flex-grow bg-white pt-24 pb-10 px-16 text-lg min-h-[32rem]">
-					<?php echo $passle_post->content ?>
+				<div class="post-content flex-grow bg-white pt-24 pb-10 px-16 text-lg min-h-[32rem] flex flex-col gap-8">
+					<div>
+						<?php echo $passle_post->content ?>
+					</div>
 					<?php if ($passle_post->quote_text != null) { ?>
-						<div class="border-l-8 border-primary pl-8 my-8 min-h-[1rem] flex flex-col gap-2 items-start">
+						<div class="border-l-8 border-primary pl-8 min-h-[1rem] flex flex-col gap-2 items-start">
 							<span class="text-2xl font-bodoni">
 								<?php echo $passle_post->quote_text; ?>
 							</span>
@@ -179,7 +181,7 @@ function xing_share_url($passle_post)
 						</div>
 					<?php } ?>
 					<?php if (!empty($passle_post->tags)) { ?>
-						<div class="mb-8">
+						<div>
 							<h3 class="text-xl font-bodoni mb-2">Tags</h3>
 							<div class="flex items-center gap-2">
 								<i class="fas fa-tags"></i>
@@ -188,7 +190,7 @@ function xing_share_url($passle_post)
 						</div>
 					<?php } ?>
 					<?php if ($passle_post->tweets) { ?>
-						<div class="mb-8">
+						<div>
 							<h3 class="text-xl font-bodoni mb-2">Tweets</h3>
 							<div class="grid grid-cols-3 gap-4">
 								<?php foreach ($passle_post->tweets as $tweet) { ?>
