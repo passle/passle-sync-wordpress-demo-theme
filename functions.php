@@ -113,21 +113,18 @@ function passle_demo_nav_menu_add_submenu_class($classes, $args, $depth)
 
 add_filter('nav_menu_submenu_css_class', 'passle_demo_nav_menu_add_submenu_class', 10, 3);
 
-function include_passle_posts_in_main_query(WP_Query $query)
+function include_only_posts_in_search(WP_Query $query)
 {
-	if (!is_admin() && $query->is_home() && $query->is_main_query()) {
-		// Show custom post type 'passle-post'
-		$query->set("post_type", "passle-post");
-
-		// Filter out the Passle page featured post
-		$meta_query = (array) $query->get("meta_query");
-		$meta_query[] = [
-			"key" => "post_is_featured_on_passle_page",
-			"compare" => "NOT EXISTS"
-		];
-
-		$query->set("meta_query", $meta_query);
+	if (!$query->is_search()) {
+		return $query;
 	}
+
+	$query->set("post_type", [
+		"post",
+		"passle-post",
+	]);
+
+	return $query;
 }
 
-add_action("pre_get_posts", "include_passle_posts_in_main_query");
+add_action("pre_get_posts", "include_only_posts_in_search");
