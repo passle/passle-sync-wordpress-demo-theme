@@ -17,7 +17,7 @@ if ($query->have_posts()) { ?>
   </div>
 
   <?php if ($pagination_links) { ?>
-    <div class="flex justify-center mt-8">
+    <div class="flex justify-center">
       <?php echo $pagination_links; ?>
     </div>
   <?php } ?>
