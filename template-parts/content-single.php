@@ -36,12 +36,16 @@ $tags = implode(", ", array_map(fn ($tag) => $tag->name, get_the_tags()));
       <div class="flex">
         <div class="post-content flex-grow bg-white ml-44 py-10 px-16 text-lg">
           <?php the_content(); ?>
-          <?php if (!empty($tags)) { ?>
+          <?php if (!empty(get_the_tags())) { ?>
             <div>
               <h3 class="text-xl font-bodoni mb-2">Tags</h3>
               <div class="flex items-center gap-2">
                 <i class="fas fa-tags"></i>
-                <span class="text-primary"><?php echo $tags; ?></span>
+                <?php foreach (get_the_tags() as $tag) { ?>
+                  <a href="<?php echo get_tag_link($tag); ?>" class="bg-gray-100 !text-gray-700 text-base py-1 px-2 rounded-sm font-sans normal-case font-medium hover:bg-primary hover:!text-white transition-colors">
+                    <?php echo $tag->name; ?>
+                  </a>
+                <?php } ?>
               </div>
             </div>
           <?php } ?>
