@@ -66,7 +66,7 @@ function xing_share_url($passle_post)
 					<div><?php echo $passle_post->estimated_read_time_minutes; ?> min read</div>
 				</div>
 			</div>
-			<div class="basis-1/2 shrink-0">
+			<div class="basis-1/2 shrink-0 w-full aspect-video">
 				<?php if ($passle_post->featured_item_html != null) {
 					echo $passle_post->featured_item_html;
 				} else { ?>

@@ -80,3 +80,17 @@
 ::selection {
   @apply bg-primary-light text-white;
 }
+
+.featured-item--audio,
+.featured-item--video {
+  height: 100%;
+
+  .psl-media-player-iframe-container {
+    height: 100%;
+  }
+
+  #psl-media-player-iframe {
+    height: 100%;
+    width: 100%;
+  }
+}
