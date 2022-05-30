@@ -28,7 +28,7 @@
 				<div class="flex justify-between items-center">
 					<div class="flex justify-between items-center">
 						<a href="/">
-							<img src="https://passle-staging.s3.amazonaws.com/CustomDesign/6049eb3217b38b10b892935c/2021-03-11-10-31-46-143-6049f19217b38b10b89294e3.png" alt="Mercier and Velez">
+							<img class="-ml-2" src="https://passle-staging.s3.amazonaws.com/CustomDesign/6049eb3217b38b10b892935c/2021-03-11-10-31-46-143-6049f19217b38b10b89294e3.png" alt="Mercier and Velez">
 						</a>
 					</div>
 				</div>
