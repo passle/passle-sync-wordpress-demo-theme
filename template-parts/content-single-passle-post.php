@@ -26,7 +26,7 @@ function twitter_share_url($passle_post)
 {
 	$author_screen_names = implode(", ", array_map(fn ($author) => empty($author->twitter_screen_name) ? $author->name : $author->twitter_screen_name, $passle_post->authors));
 	$tweet_content = "{$passle_post->title} by {$author_screen_names}";
-	$hashtags = implode(", ", array_map(fn ($tag) => str_replace([" ", "-"], "", $tag), $passle_post->tags));
+	$hashtags = implode(", ", array_map(fn ($tag) => str_replace([" ", "-"], "", $tag), $passle_post->get_tag_names()));
 
 	return Utils::sformat("https://twitter.com/intent/tweet?text={content}&url={url}&hashtags={hashtags}", [
 		"content" => urlencode($tweet_content),
@@ -185,7 +185,11 @@ function xing_share_url($passle_post)
 							<h3 class="text-xl font-bodoni mb-2">Tags</h3>
 							<div class="flex items-center gap-2">
 								<i class="fas fa-tags"></i>
-								<span class="text-primary"><?php echo $passle_post->get_joined_tags(); ?></span>
+								<?php foreach ($passle_post->tags as $tag) { ?>
+									<a href="<?php echo $tag->url; ?>" class="bg-gray-100 !text-gray-700 text-base py-1 px-2 rounded-sm font-sans normal-case font-medium hover:bg-primary hover:!text-white transition-colors">
+										<?php echo $tag->name; ?>
+									</a>
+								<?php } ?>
 							</div>
 						</div>
 					<?php } ?>

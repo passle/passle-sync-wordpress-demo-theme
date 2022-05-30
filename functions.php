@@ -115,7 +115,7 @@ add_filter('nav_menu_submenu_css_class', 'passle_demo_nav_menu_add_submenu_class
 
 function include_only_posts_in_search(WP_Query $query)
 {
-	if (!$query->is_search()) {
+	if (!$query->is_search() && !$query->is_tag()) {
 		return $query;
 	}
 

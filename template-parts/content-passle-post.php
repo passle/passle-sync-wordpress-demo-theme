@@ -3,7 +3,10 @@
 use Passle\PassleSync\Models\PasslePost;
 
 global $post;
-$passle_post = new PasslePost($post, false);
+$passle_post = new PasslePost($post, [
+	"load_authors" => false,
+	"load_tags" => false,
+]);
 
 ?>
 
