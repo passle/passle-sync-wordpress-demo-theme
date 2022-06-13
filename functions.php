@@ -128,3 +128,15 @@ function include_only_posts_in_search(WP_Query $query)
 }
 
 add_action("pre_get_posts", "include_only_posts_in_search");
+
+function enqueue_styles()
+{
+	wp_register_style(
+		"passle-fontawesome",
+		"https://dukb55syzud3u.cloudfront.net/Content/fontawesome/all.min.css?v=5.3.3"
+	);
+
+	wp_enqueue_style("passle-fontawesome");
+}
+
+add_action("wp_enqueue_scripts", "enqueue_styles");
