@@ -12,6 +12,25 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&display=swap" rel="stylesheet">
 
+	<?php
+	switch (wp_get_environment_type()) {
+		case "staging":
+			$color_primary = "59 130 246";
+			$color_primary_light = "96 165 250";
+			break;
+		default:
+			$color_primary = "255 82 113";
+			$color_primary_light = "255 133 155";
+			break;
+	}
+	?>
+	<style>
+		:root {
+			--color-primary: <?php echo $color_primary; ?>;
+			--color-primary-light: <?php echo $color_primary_light; ?>;
+		}
+	</style>
+
 	<?php wp_head(); ?>
 </head>
 

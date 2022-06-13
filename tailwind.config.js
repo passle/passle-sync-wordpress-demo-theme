@@ -3,6 +3,7 @@ const theme = require("./theme.json");
 const tailpress = require("@jeffreyvr/tailwindcss-tailpress");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./*.php",
@@ -20,9 +21,13 @@ module.exports = {
       },
     },
     extend: {
-      colors: tailpress.colorMapper(
-        tailpress.theme("settings.color.palette", theme),
-      ),
+      colors: {
+        ...tailpress.colorMapper(
+          tailpress.theme("settings.color.palette", theme),
+        ),
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        "primary-light": "rgb(var(--color-primary-light) / <alpha-value>)",
+      },
       fontSize: tailpress.fontSizeMapper(
         tailpress.theme("settings.typography.fontSizes", theme),
       ),
