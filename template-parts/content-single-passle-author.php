@@ -93,7 +93,7 @@ $first_name = explode(" ", $passle_author->name)[0];
 						<?php
 						while ($query->have_posts()) {
 							$query->the_post();
-							get_template_part('template-parts/content', get_post_format());
+							get_template_part('template-parts/content', get_post_type());
 						}
 						?>
 					</div>
