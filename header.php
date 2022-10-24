@@ -46,7 +46,7 @@
 			<div class="mx-auto max-w-6xl w-full">
 				<div class="flex justify-between items-center">
 					<div class="flex justify-between items-center">
-						<a href="/">
+						<a href="<?php echo get_home_url(); ?>">
 							<img class="-ml-2" src="https://passle-staging.s3.amazonaws.com/CustomDesign/6049eb3217b38b10b892935c/2021-03-11-10-31-46-143-6049f19217b38b10b89294e3.png" alt="Mercier and Velez">
 						</a>
 					</div>
@@ -60,12 +60,12 @@
 
 			<div class="mx-auto max-w-6xl">
 				<div class="py-4 flex justify-between items-center">
-					<a href="/" class="text-primary font-bodoni font-semibold">All posts</a>
+					<a href="<?php echo get_home_url(); ?>" class="text-primary font-bodoni font-semibold">All posts</a>
 					<div class="relative">
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
 							<i class="fas fa-search text-gray-400"></i>
 						</div>
-						<form action="<?php home_url("/") ?>" method="get" role="search" autocomplete="off">
+						<form action="<?php echo get_home_url(); ?>" method="get" role="search" autocomplete="off">
 							<input type="text" placeholder="Search for posts" class="border border-gray-400 pl-10 p-2 w-72 focus:ring-primary focus:border-primary" value="<?php echo the_search_query() ?>" name="s" id="s" />
 						</form>
 					</div>

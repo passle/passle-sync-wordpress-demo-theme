@@ -31,7 +31,7 @@ if ($query->have_posts()) { ?>
     </div>
 
     <div class="flex justify-center">
-      <a href="/insights" class="section__button">More insights</a>
+      <a href="<?php echo get_home_url(null, "/insights"); ?>" class="section__button">More insights</a>
     </div>
 
     <?php wp_reset_postdata(); ?>
