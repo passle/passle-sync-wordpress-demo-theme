@@ -1,6 +1,6 @@
-# Passle Sync Demo Theme for Wordpress
+# Passle Sync Demo Theme for WordPress
 
-Passle Sync Demo is a theme for Wordpress which makes use of the [Passle Sync](https://github.com/passle/passle-sync-wordpress) plugin.
+Passle Sync Demo is a theme for WordPress which makes use of the [Passle Sync](https://github.com/passle/passle-sync-wordpress) plugin.
 
 ## 🚀 Getting started
 
@@ -20,7 +20,7 @@ TBD
 <summary>Prerequisites</summary>
 
 - [NPM](https://www.npmjs.com/)
-- Development environment running a Wordpress instance
+- Development environment running a WordPress instance
 
 </details>
 
@@ -62,4 +62,4 @@ If you'd like to request a feature or report a bug, please create a GitHub Issue
 
 ## 📜 License
 
-The Passle Sync demo theme is released under the under terms of the [MIT License](./LICENSE).
+The Passle Sync demo theme is released under the terms of the [MIT License](./LICENSE).
