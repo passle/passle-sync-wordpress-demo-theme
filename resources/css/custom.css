@@ -93,6 +93,10 @@
     @apply border-l-4 border-gray-200 pl-4 mb-4;
   }
 
+  li {
+    @apply list-inside list-disc;
+  }
+
   .fr-accordion {
     @apply flex flex-col gap-4 mb-4;
 
