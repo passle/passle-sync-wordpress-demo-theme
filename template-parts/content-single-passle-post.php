@@ -77,7 +77,7 @@ function xing_share_url($passle_post)
 		<div class="py-4 bg-primary text-white font-bodoni">
 			<div class="max-w-6xl mx-auto px-8">
 				<div class="flex gap-6">
-					<?php if ($passle_post->primary_author->synced) { ?>
+					<?php if ($passle_post->primary_author->synced && !empty($passle_post->primary_author->profile_url)) { ?>
 						<a href="<?php echo $passle_post->primary_author->profile_url; ?>">
 							<img src="<?php echo $passle_post->primary_author->get_avatar_url(); ?>" alt="<?php echo $passle_post->primary_author->name; ?>" class="h-24 w-24 object-cover border border-gray-300" />
 						</a>
@@ -85,7 +85,7 @@ function xing_share_url($passle_post)
 						<img src="<?php echo $passle_post->primary_author->get_avatar_url(); ?>" alt="<?php echo $passle_post->primary_author->name; ?>" class="h-24 w-24 object-cover border border-gray-300" />
 					<?php } ?>
 					<div class="flex flex-col justify-center gap-1">
-						<?php if ($passle_post->primary_author->synced) { ?>
+						<?php if ($passle_post->primary_author->synced && !empty($passle_post->primary_author->profile_url)) { ?>
 							<a href="<?php echo $passle_post->primary_author->profile_url; ?>" class="text-2xl underline font-medium"><?php echo $passle_post->primary_author->name; ?></a>
 						<?php } else { ?>
 							<span class="text-2xl font-medium"><?php echo $passle_post->primary_author->name; ?></span>
