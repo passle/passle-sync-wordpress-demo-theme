@@ -2,7 +2,11 @@
 
 <div class="mb-8 mx-auto">
 
-	<?php if (have_posts()) : ?>
+	<?php if ($is_passle_preview) : ?>
+
+		<?php get_template_part("template-parts/content", "single-passle-post"); ?>
+
+	<?php elseif (have_posts()) : ?>
 
 		<?php
 		while (have_posts()) :
