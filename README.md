@@ -45,7 +45,7 @@ npm run init
 <details>
 <summary>Developing the frontend</summary>
 
-To develop the frontend, use the `watch` script available in [package.json](./frontend/package.json).
+To develop the frontend, use the `watch` script available in [package.json](./package.json).
 
 </details>
 
