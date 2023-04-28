@@ -48,6 +48,39 @@
 }
 
 .post-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold mb-4;
+  }
+
+  h1 {
+    @apply text-2xl;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg;
+  }
+
+  h4 {
+    @apply text-base;
+  }
+
+  h5 {
+    @apply text-sm;
+  }
+
+  h6 {
+    @apply text-xs;
+  }
+
   p {
     @apply mb-4;
   }
@@ -58,6 +91,30 @@
 
   blockquote {
     @apply border-l-4 border-gray-200 pl-4 mb-4;
+  }
+
+  li {
+    @apply list-inside list-disc;
+  }
+
+  .fr-accordion {
+    @apply flex flex-col gap-4 mb-4;
+
+    details {
+      @apply border-t-4 border-solid border-gray-400 bg-gray-100 box-border;
+
+      &[open] {
+        @apply border-t-4 border-solid border-primary;
+      }
+
+      > summary {
+        @apply cursor-pointer p-4 font-bold outline-none bg-gray-200;
+      }
+
+      > :not(summary) {
+        @apply m-4;
+      }
+    }
   }
 }
 
