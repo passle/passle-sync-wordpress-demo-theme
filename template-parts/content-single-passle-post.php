@@ -193,16 +193,6 @@ function xing_share_url($passle_post)
 							</div>
 						</div>
 					<?php } ?>
-					<?php if ($passle_post->tweets) { ?>
-						<div>
-							<h3 class="text-xl font-bodoni mb-2">Tweets</h3>
-							<div class="grid grid-cols-3 gap-4">
-								<?php foreach ($passle_post->tweets as $tweet) { ?>
-									<?php echo htmlspecialchars_decode($tweet->embed_code) ?>
-								<?php } ?>
-							</div>
-						</div>
-					<?php } ?>
 				</div>
 			</div>
 		</div>
